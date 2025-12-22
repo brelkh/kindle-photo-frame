@@ -1,0 +1,31 @@
+{
+  "items": [
+    {
+      "name": "PhotoFrame",
+      "priority": 0,
+      "items": [
+        {
+          "name": "Start",
+          "action": "exec",
+          "params": "./start.sh",
+          "exitmenu": false,
+          "refresh": false
+        },
+        {
+          "name": "Stop",
+          "action": "exec",
+          "params": "./stop.sh",
+          "exitmenu": false,
+          "refresh": false
+        },
+        {
+          "name": "Status",
+          "action": "exec",
+          "params": "./status.sh",
+          "exitmenu": false,
+          "refresh": false
+        }
+      ]
+    }
+  ]
+}
