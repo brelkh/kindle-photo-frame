@@ -7,7 +7,8 @@ Outline of project:
 2) Add [NetworkUSB](https://wiki.mobileread.com/wiki/USBNetwork) to allow SSHing into the kindle (Download NetworkUSB tar extension from here and add it to /mnt/us/extensions on the kindle: https://www.mobileread.com/forums/showthread.php?t=225030)
 3) Preprocess photos with ImageMagick on mac
 4) Display photos using FBInk
-5) Run photo rotation script
+5) Run photo rotation script via SSH OR kual PhotoFrame extension
+6) Prepare backup photo book (using Kindle Comic Converter: https://github.com/ciromattia/kcc)
 6) Extension: Add google photo compatibility (Inspired by: https://github.com/mattzzw/kindle-gphotos)
 
 ## Commands for ImageMagick (Mac)
