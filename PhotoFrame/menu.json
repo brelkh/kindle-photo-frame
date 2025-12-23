@@ -24,6 +24,12 @@
           "params": "./status.sh",
           "exitmenu": false,
           "refresh": false
+        },
+        {
+          "name": "Update from Google Photos",
+          "action": "./update_gphotos.sh",
+          "exitmenu": false,
+          "refresh": false
         }
       ]
     }
