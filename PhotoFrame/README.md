@@ -12,7 +12,20 @@ Outline of project:
 
 ## Commands for ImageMagick (Mac)
 ```
+# Use this for the kindle paperwhite 6th gen
 magick *.jpg -auto-orient -resize 758x1024^ -gravity center -extent 758x1024 -colorspace Gray -contrast-stretch 0.3%x0.3% -depth 8 -strip "kindle_$(date +%Y%m%d_%H%M%S)_%03d.png"
+
+# Use this for the kindle paperwhite 10th gen
+magick *.jpg \
+  -auto-orient \
+  -resize 1072x1448^ \
+  -gravity center \
+  -extent 1072x1448 \
+  -colorspace Gray \
+  -auto-level \
+  -depth 8 \
+  -strip \
+  "kindle_pw10_punchy_$(date +%Y%m%d_%H%M%S)_%03d.png"
 ```
 
 ## Commands for FBInk
