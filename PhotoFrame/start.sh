@@ -5,7 +5,7 @@ FBINK="/mnt/us/bin/FBInk-v1.25.0-kindle/PW2/bin/fbink"
 PIDFILE="/mnt/us/photoframe.pid"
 
 INTERVAL=60
-FULLFLASH_EVERY=5
+FULLFLASH_EVERY=2
 START_DELAY=2   # <-- give KUAL time to finish repainting after tapping Start
 
 # Already running?
