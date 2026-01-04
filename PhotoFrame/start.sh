@@ -43,7 +43,6 @@ keep_awake_tick() {
 keep_awake_off() {
   # Restore default behavior
   lipc-set-prop -i "$POWERD" preventScreenSaver 0 2>/dev/null
-  # Not restoring touchScreenSaverTimeout here to keep changes minimal/safe
 }
 
 cleanup() {
@@ -53,10 +52,8 @@ cleanup() {
 }
 
 (
-  # Ensure we clean up on termination
   trap cleanup INT TERM EXIT
 
-  # Let KUAL finish its delayed repaint first
   sleep "$START_DELAY"
 
   keep_awake_on
@@ -66,7 +63,6 @@ cleanup() {
     keep_awake_tick
 
     img="$(pick_random_img)"
-
     if [ -z "$img" ]; then
       $FBINK -c "No images in /mnt/us/photos"
       sleep 10
@@ -88,7 +84,13 @@ cleanup() {
       $FBINK -x 0 -y 0 "$BAT"
     fi
 
-    sleep "$INTERVAL"
+    # ---- short-tick sleep to avoid deep suspend ----
+    t=0
+    while [ "$t" -lt "$INTERVAL" ]; do
+      keep_awake_tick
+      sleep 30
+      t=$((t + 30))
+    done
   done
 ) &
 
