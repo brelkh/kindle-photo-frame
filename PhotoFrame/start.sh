@@ -4,7 +4,7 @@ PF_DIR="/mnt/us/photos"
 FBINK="/mnt/us/bin/FBInk-v1.25.0-kindle/PW2/bin/fbink"
 PIDFILE="/mnt/us/photoframe.pid"
 
-INTERVAL=600
+INTERVAL=300
 FULLFLASH_EVERY=2
 START_DELAY=2   # <-- give KUAL time to finish repainting after tapping Start
 
@@ -32,6 +32,9 @@ keep_awake_on() {
 }
 
 keep_awake_tick() {
+  # Wake poke (PW 6th gen / FW 5.12.2.2)
+  lipc-set-prop -i "$POWERD" wakeUp 1 2>/dev/null
+
   # Prevent/interrupt suspend attempts (ignore errors if not supported)
   lipc-set-prop -i "$POWERD" abortSuspend 1 2>/dev/null
   lipc-set-prop -i "$POWERD" deferSuspend 1 2>/dev/null
