@@ -4,7 +4,7 @@ PF_DIR="/mnt/us/photos"
 FBINK="/mnt/us/bin/FBInk-v1.25.0-kindle/PW2/bin/fbink"
 PIDFILE="/mnt/us/photoframe.pid"
 
-INTERVAL=300
+INTERVAL=315 # take screensaver at 600s into account and change image around 630s
 FULLFLASH_EVERY=2
 START_DELAY=2   # <-- give KUAL time to finish repainting after tapping Start
 
@@ -88,8 +88,8 @@ cleanup() {
     t=0
     while [ "$t" -lt "$INTERVAL" ]; do
       keep_awake_tick
-      sleep 30
-      t=$((t + 30))
+      sleep 15
+      t=$((t + 15))
     done
   done
 ) &
